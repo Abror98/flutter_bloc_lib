@@ -1,4 +1,4 @@
-# flutter_bloc_lib
+# flutter_bloc example
 
 A new Flutter application.
 
