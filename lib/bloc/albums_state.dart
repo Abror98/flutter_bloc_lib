@@ -1,7 +1,6 @@
 part of 'albums_bloc.dart';
 
-abstract class AlbumsState extends Equatable{
-
+abstract class AlbumsState extends Equatable {
   @override
   // TODO: implement props
   List<Object> get props => [];
@@ -9,24 +8,26 @@ abstract class AlbumsState extends Equatable{
 
 class AlbumsInitState extends AlbumsState {}
 
-class AlbumsLoading extends AlbumsState {}
+class AlbumsLoadingState extends AlbumsState {}
 
-class AlbumsLoaded extends AlbumsState{
+class AlbumsLoadedState extends AlbumsState {
   final List<Albums> albums;
-  AlbumsLoaded({this.albums});
+  final int count;
+
+  AlbumsLoadedState({this.albums, this.count});
 
   @override
-  // TODO: implement props
-  List<Object> get props => [albums];
+  List<Object> get props => [albums, count];
 }
 
-class AlbumsCountState extends AlbumsState {
-  final count;
+// class AlbumsCountState extends AlbumsState {
+//   final count;
+//
+//   AlbumsCountState({this.count});
+// }
 
-  AlbumsCountState({this.count});
-}
-
-class AlbumsListError extends AlbumsState{
+class AlbumsListErrorState extends AlbumsState {
   final error;
-  AlbumsListError({this.error});
+
+  AlbumsListErrorState({this.error});
 }

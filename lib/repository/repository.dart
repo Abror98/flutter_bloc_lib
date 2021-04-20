@@ -1,10 +1,6 @@
-
 import 'package:flutter_bloc_lib/model/albums.dart';
 import 'package:http/http.dart' as http;
 import 'package:http/http.dart';
-
-
-
 
 class AlbumsRepository{
   static const _baseUrl = 'jsonplaceholder.typicode.com';
@@ -17,5 +13,4 @@ class AlbumsRepository{
      List<Albums> albums = albumsFromJson(response.body);
      return albums;
   }
-
 }
