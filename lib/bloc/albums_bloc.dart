@@ -2,6 +2,8 @@ import 'dart:async';
 import 'dart:io';
 
 import 'package:bloc/bloc.dart';
+
+
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc_lib/model/albums.dart';
 import 'package:flutter_bloc_lib/network_error/internet_error.dart';
@@ -16,7 +18,6 @@ class AlbumsBloc extends Bloc<AlbumsEvents, AlbumsState> {
   AlbumsRepository _albumsRepository = AlbumsRepository();
   List<Albums> _albums;
   int _count = 0;
-
   AlbumsBloc() : super(AlbumsInitState());
 
   @override

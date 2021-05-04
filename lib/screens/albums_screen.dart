@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_bloc_lib/bloc/albums_bloc.dart';
 import 'package:flutter_bloc_lib/model/albums.dart';
+import 'package:flutter_bloc_lib/widgets/custom_button.dart';
 import 'package:flutter_bloc_lib/widgets/error.dart';
 import 'package:flutter_bloc_lib/widgets/list_row.dart';
 import 'package:flutter_bloc_lib/widgets/loading.dart';
@@ -42,28 +43,21 @@ class _AlbumsScreenState extends State<AlbumsScreen> {
     return BlocBuilder<AlbumsBloc, AlbumsState>(builder: (context, state) {
       if (state is AlbumsLoadingState || state is AlbumsInitState)
         return Center(child: CircularProgressIndicator());
-      if (state is AlbumsListErrorState) return Center(child: Text("${state.error}"));
+      if (state is AlbumsListErrorState)
+        return Center(child: Text("${state.error}"));
       if (state is AlbumsLoadedState)
         return Column(
           children: [
             Row(
               children: [
-                MaterialButton(
-                  minWidth: 50,
-                  height: 50,
-                  shape: CircleBorder(),
-                  color: Colors.blue,
+                CustomButton(
+                  iconData: Icons.add,
                   onPressed: () => bloc.add(AlbumsAddEvent()),
-                  child: Icon(Icons.add, color: Colors.white),
                 ),
                 Text("${state.count}"),
-                MaterialButton(
-                  minWidth: 50,
-                  height: 50,
-                  shape: CircleBorder(),
-                  color: Colors.blue,
+                CustomButton(
+                  iconData: Icons.remove,
                   onPressed: () => bloc.add(AlbumsDecrementEvent()),
-                  child: Icon(Icons.remove, color: Colors.white),
                 ),
               ],
             ),

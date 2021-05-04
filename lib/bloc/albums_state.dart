@@ -20,11 +20,6 @@ class AlbumsLoadedState extends AlbumsState {
   List<Object> get props => [albums, count];
 }
 
-// class AlbumsCountState extends AlbumsState {
-//   final count;
-//
-//   AlbumsCountState({this.count});
-// }
 
 class AlbumsListErrorState extends AlbumsState {
   final error;
