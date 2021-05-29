@@ -29,6 +29,12 @@ class _AlbumsScreenState extends State<AlbumsScreen> {
   }
 
   @override
+  void dispose() {
+    bloc.close();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
